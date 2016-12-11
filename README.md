@@ -9,9 +9,11 @@ Download the game from [Github](https://github.com/choncou/frontend-nanodegree-a
 ## Run
 
 1) `cd` to the directory where you have downloaded the project in your terminal
+
 2) In that directory, start a simple server by running:
     ```
     $ python -m SimpleHTTPServer
     ```
 3) Open [http://localhost:8000/](http://localhost:8000/) in your browser
+
 4) _PLAY TIME!_
