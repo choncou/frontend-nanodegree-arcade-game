@@ -14,6 +14,7 @@ Download the game from [Github](https://github.com/choncou/frontend-nanodegree-a
     ```
     $ python -m SimpleHTTPServer
     ```
+
 3) Open [http://localhost:8000/](http://localhost:8000/) in your browser
 
 4) _PLAY TIME!_
