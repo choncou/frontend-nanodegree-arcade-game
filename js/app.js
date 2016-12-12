@@ -1,11 +1,11 @@
-var startingYPositions = [56, 146, 202]; // Different positions where the enemy can start on the y-axis
+var START_Y_POSITIONS = [56, 146, 202]; // Different positions where the enemy can start on the y-axis
 
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = 0;
-    this.y = startingYPositions[Math.floor(Math.random() * startingYPositions.length)];
+    this.y = START_Y_POSITIONS[Math.floor(Math.random() * START_Y_POSITIONS.length)];
     this.speed = (Math.random() * 200) + 50;
 
     // The image/sprite for our enemies, this uses
@@ -28,7 +28,7 @@ Enemy.prototype.update = function(dt) {
         allEnemies.push(new Enemy());
     }
 
-    checkCollision(this);
+    player.checkCollision(this);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -63,39 +63,39 @@ Player.prototype.restart = function () {
 Player.prototype.handleInput = function (key) {
     switch(key) {
         case 'left':
-            if (6.5 < player.x) {
-                player.x -= 98;
+            if (6.5 < this.x) {
+                this.x -= 98;
             }
             break;
         case 'up':
-            player.y -= 80;
+            this.y -= 80;
             break;
         case 'right':
-            if (398.5 > player.x) {
-                player.x += 98;
+            if (398.5 > this.x) {
+                this.x += 98;
             }
             break;
         case 'down':
-            if (383 > player.y) {
-                player.y += 80;
+            if (383 > this.y) {
+                this.y += 80;
             }
             break;
     }
     console.log('Player Move: ' + key);
 
-    if (player.y - 60 <= 0) {
+    if (this.y - 60 <= 0) {
         console.log("You reached the water!");
-        player.restart()
+        this.restart()
     }
 };
 
-var checkCollision = function (bug) {
-    if (player.y + 131 >= bug.y + 90
-        && player.x + 25 <= bug.x + 88
-        && player.y + 73 <= bug.y + 135
-        && player.x + 76 >= bug.x + 11) {
+Player.prototype.checkCollision = function (bug) {
+    if (this.y + 131 >= bug.y + 90
+        && this.x + 25 <= bug.x + 88
+        && this.y + 73 <= bug.y + 135
+        && this.x + 76 >= bug.x + 11) {
         console.log('OUCH! The bugs got you');
-        player.restart()
+        this.restart()
     }
 };
 

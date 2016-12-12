@@ -17,4 +17,8 @@ Download the game from [Github](https://github.com/choncou/frontend-nanodegree-a
 
 3) Open [http://localhost:8000/](http://localhost:8000/) in your browser
 
-4) _PLAY TIME!_
+## How to Play
+
+- Use the arrow keys to move your character around
+
+- Get you character to the water, and you win!
